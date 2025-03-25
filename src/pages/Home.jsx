@@ -138,7 +138,7 @@ const Home = () => {
   };
 
   return (
-    <div className="font-poppins text-gray-200 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 min-h-screen">
+    <div className="font-poppins text-white bg-gradient-to-b from-[#1F1F1F] to-[#333333] min-h-screen">
       <Navbar />
 
       {/* Hero Section */}
@@ -154,17 +154,17 @@ const Home = () => {
             </div>
           ))}
         </Slider>
-        <div className="absolute bottom-10 left-10 max-w-lg bg-white p-6 rounded-lg border shadow-lg">
-          <h1 className="text-4xl  text-black font-bold leading-tight tracking-wide">
+        <div className="absolute bottom-10 left-10 max-w-lg bg-[#000000] bg-opacity-80 p-6 rounded-lg border border-gray-700 shadow-lg">
+          <h1 className="text-4xl text-white font-bold leading-tight tracking-wide">
             Custom Apparel Solutions for Every Occasion
           </h1>
-          <p className="text-sm text-black mt-4">
+          <p className="text-sm text-gray-300 mt-4">
             From sportswear to corporate attire, we provide high-quality custom
             clothing designed to elevate your brand.
           </p>
           <button
             onClick={handleScrollToDesigns}
-            className="mt-6 inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-md transition-all duration-300 shadow-lg"
+            className="mt-6 bg-[#E60000] hover:bg-red-700 text-white font-bold py-3 px-8 rounded-md transition-all duration-300 shadow-lg"
           >
             Explore Our Custom Designs
           </button>
@@ -174,16 +174,29 @@ const Home = () => {
       {/* Completed Designs Section */}
       <section
         ref={designsRef}
-        className="py-20 bg-transparent backdrop-blur-lg"
+        className="py-10 bg-transparent backdrop-blur-lg"
       >
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl text-white mb-12">Our Custom Designs</h2>
+          <h2 className="text-4xl text-white relative inline-block">
+            Designs created for clients
+            <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 -mb-3 w-12 h-1 bg-[#E60000]"></span>
+          </h2>
+          <p className="text-xl max-w-6xl mx-auto text-gray-300  pt-4">
+            Check out our latest collection of high-quality, custom-designed
+            clothing created for our valued customers. Below, you’ll find a
+            showcase of our past designs, giving you a glimpse of our
+            craftsmanship and attention to detail. We take pride in delivering
+            premium-quality apparel that meets the highest standards of style
+            and durability. Browse through our work to see the quality for
+            yourself, and feel free to contact us to bring your own unique
+            designs to life!
+          </p>
+
           <Slider {...settings}>
             {completedDesigns.map((design, index) => (
-              <div key={index} className="px-4">
-                {" "}
+              <div key={index} className="px-4 pt-12">
                 <div
-                  className="relative group w-110 h-96 overflow-hidden rounded-2xl border border-white/20 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer bg-white/20 backdrop-blur-md"
+                  className="relative group w-110 h-90 overflow-hidden rounded-2xl border border-gray-700 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer bg-[#1F1F1F] backdrop-blur-md"
                   onClick={() => setSelectedDesign(design)}
                 >
                   <img
@@ -201,14 +214,13 @@ const Home = () => {
           </Slider>
         </div>
       </section>
-
       {selectedDesign && (
         <div
           className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
           onClick={() => setSelectedDesign(null)}
         >
           <div
-            className="bg-white/80 rounded-2xl shadow-2xl w-full max-w-3xl flex flex-col md:flex-row items-center space-x-6 h-auto md:h-120 p-8"
+            className="bg-[#1F1F1F] text-white rounded-2xl shadow-2xl w-full max-w-3xl flex flex-col md:flex-row items-center space-x-6 h-auto md:h-120 p-8 border border-gray-700"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Left Side: Image */}
@@ -221,17 +233,21 @@ const Home = () => {
             </div>
 
             {/* Right Side: Details */}
-            <div className="w-full md:w-1/2 text-black space-y-4">
-              <h2 className="text-3xl font-bold">{selectedDesign.name}</h2>
-              <p className="text-black">{selectedDesign.desc}</p>
+            <div className="w-full md:w-1/2 space-y-4">
+              <h2 className="text-3xl font-bold text-[#E60000]">
+                {selectedDesign.name}
+              </h2>
+              <p className="text-gray-300">{selectedDesign.desc}</p>
               <p>
-                <strong>Material:</strong> {selectedDesign.material}
+                <strong className="text-white">Material:</strong>{" "}
+                {selectedDesign.material}
               </p>
               <p>
-                <strong>Type:</strong> {selectedDesign.type}
+                <strong className="text-white">Type:</strong>{" "}
+                {selectedDesign.type}
               </p>
               <button
-                className="mt-4 bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg transition duration-300"
+                className="mt-4 bg-[#E60000] hover:bg-red-700 text-white py-2 px-4 rounded-lg transition duration-300"
                 onClick={() => setSelectedDesign(null)}
               >
                 Close
@@ -242,11 +258,12 @@ const Home = () => {
       )}
 
       {/* Features Section */}
-      <section className="py-20 bg-transparent">
+      <section className="py-10 bg-transparent">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl  text-white relative inline-block">
+            <h2 className="text-4xl text-white relative inline-block">
               Why Choose Us
+              <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 -mb-4 w-12 h-1 bg-[#E60000]"></span>
             </h2>
           </div>
 
@@ -254,13 +271,13 @@ const Home = () => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100"
+                className="bg-[#000000] bg-opacity-80 rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-700 text-white"
               >
-                <div className="text-4xl text-black mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold text-black mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-black">{feature.desc}</p>
+                <div className="text-4xl text-[#E60000] mb-4">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+                <p className="text-gray-300">{feature.desc}</p>
               </div>
             ))}
           </div>
@@ -268,7 +285,7 @@ const Home = () => {
       </section>
 
       {/* Call-to-Action Section */}
-      <section className="py-20 bg-white bg-opacity-10 backdrop-blur-lg text-white text-center">
+      <section className="py-10 bg-[#1F1F1F] text-white text-center">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl mb-4">
             Ready to Create Your Custom Apparel?
@@ -278,7 +295,7 @@ const Home = () => {
           </p>
           <Link
             to="/contact"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-md transition-all duration-300"
+            className="inline-block bg-[#E60000] hover:bg-red-700 text-white font-bold py-3 px-8 rounded-md transition-all duration-300"
           >
             Get Started
           </Link>
