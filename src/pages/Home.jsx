@@ -5,32 +5,33 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/~Footer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import video from "../videos/bg.mp4";
 
-import hero1 from "../images/img3.jpg";
-import hero2 from "../images/img4.jpg";
-import hero3 from "../images/img1.jpg";
+// import hero1 from "../images/img3.jpg";
+// import hero2 from "../images/img4.jpg";
+// import hero3 from "../images/img1.jpg";
 
-import design1 from "../images/cd2.png";
-import design2 from "../images/cd2.png";
-import design3 from "../images/cd2.png";
-import design4 from "../images/cd1.png";
-import design5 from "../images/cd1.png";
-import design6 from "../images/cd1.png";
+import design1 from "../images/img1.jpg";
+import design2 from "../images/img2.jpg";
+import design3 from "../images/img3.jpg";
+import design4 from "../images/img6.jpeg";
+import design5 from "../images/img7.jpeg";
+import design6 from "../images/img8.jpeg";
 
-const sliderImages = [hero1, hero2, hero3];
+// const sliderImages = [hero1, hero2, hero3];
 
-const sliderSettings = {
-  dots: true,
-  infinite: true,
-  speed: 1500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 3000,
-  arrows: false,
-  pauseOnHover: false,
-  fade: true,
-};
+// const sliderSettings = {
+//   dots: true,
+//   infinite: true,
+//   speed: 1500,
+//   slidesToShow: 1,
+//   slidesToScroll: 1,
+//   autoplay: true,
+//   autoplaySpeed: 3000,
+//   arrows: false,
+//   pauseOnHover: false,
+//   fade: true,
+// };
 
 const settings = {
   dots: true,
@@ -142,18 +143,19 @@ const Home = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative">
-        <Slider {...sliderSettings}>
-          {sliderImages.map((img, index) => (
-            <div key={index} className="relative">
-              <img
-                src={img}
-                alt={`Slide ${index + 1}`}
-                className="w-full h-screen object-cover brightness-50"
-              />
-            </div>
-          ))}
-        </Slider>
+      <section className="relative w-full h-screen">
+        <div className="absolute inset-0">
+          <video
+            className="w-full h-full object-cover brightness-50"
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            <source src={video} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
         <div className="absolute bottom-10 left-10 max-w-lg bg-[#000000] bg-opacity-80 p-6 rounded-lg border border-gray-700 shadow-lg">
           <h1 className="text-4xl text-white font-bold leading-tight tracking-wide">
             Custom Apparel Solutions for Every Occasion
