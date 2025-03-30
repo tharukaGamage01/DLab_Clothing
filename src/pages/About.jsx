@@ -7,13 +7,12 @@ const About = () => {
   return (
     <div className="font-poppins text-gray-200 pt-16 bg-[#1F1F1F]">
       <Navbar />
+
       {/* Hero Section */}
-      <section className="relative py-10 bg-[#E60000] text-white text-center">
-        <div className="mx-auto px-4 relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            About TLab Clothing
-          </h1>
-          <p className="text-lg max-w-2xl mx-auto text-gray-100">
+      <section className="relative py-16 bg-[#E60000] text-white text-center">
+        <div className="max-w-3xl mx-auto px-6 relative z-10">
+          <h1 className="text-5xl font-bold mb-6">About TLab Clothing</h1>
+          <p className="text-lg text-gray-100 leading-relaxed">
             Learn more about our journey, our mission, and what makes us the
             leading custom apparel solution provider.
           </p>
@@ -21,18 +20,14 @@ const About = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-10 bg-[#333333] text-white">
-        <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="py-16 bg-[#333333] text-white">
+        <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div
-            className="rounded-lg overflow-hidden h-96 shadow-lg"
-            style={{
-              backgroundImage: "url('/images/about.jpg')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
+            className="rounded-xl overflow-hidden shadow-lg h-96 bg-cover bg-center"
+            style={{ backgroundImage: "url('/images/about.jpg')" }}
           ></div>
           <div>
-            <h2 className="text-3xl font-semibold mb-6 text-[#E60000]">
+            <h2 className="text-4xl font-semibold mb-6 text-[#E60000]">
               Our Story
             </h2>
             <p className="text-gray-300 mb-4 leading-relaxed">
@@ -54,11 +49,11 @@ const About = () => {
 
       {/* Mission & Values */}
       <section className="py-20 bg-[#1F1F1F] text-white text-center">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-semibold text-[#E60000] mb-8">
+        <div className="container mx-auto px-6">
+          <h2 className="text-4xl font-semibold text-[#E60000] mb-12">
             Our Mission & Values
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
               {
                 title: "Our Mission",
@@ -78,13 +73,13 @@ const About = () => {
             ].map((item, index) => (
               <div
                 key={index}
-                className="bg-gray-900 p-8 rounded-lg shadow-md border border-gray-700"
+                className="bg-gray-900 p-8 rounded-xl shadow-lg border border-gray-700"
               >
-                <div className="text-4xl mb-4">{item.icon}</div>
-                <h3 className="text-xl font-bold text-[#E60000] mb-3">
+                <div className="text-5xl mb-4">{item.icon}</div>
+                <h3 className="text-2xl font-bold text-[#E60000] mb-3">
                   {item.title}
                 </h3>
-                <p className="text-gray-300">{item.text}</p>
+                <p className="text-gray-300 leading-relaxed">{item.text}</p>
               </div>
             ))}
           </div>
@@ -93,17 +88,17 @@ const About = () => {
 
       {/* CTA Section */}
       <section className="py-20 bg-[#E60000] text-white text-center">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-semibold mb-4">
+        <div className="container mx-auto px-6">
+          <h2 className="text-4xl font-semibold mb-6">
             Ready to Work With Us?
           </h2>
-          <p className="text-lg max-w-2xl mx-auto mb-8 text-gray-100">
+          <p className="text-lg max-w-2xl mx-auto mb-8 text-gray-100 leading-relaxed">
             Let's create custom apparel that perfectly represents your brand and
             meets your specific needs.
           </p>
           <Link
             to="/contact"
-            className="inline-block bg-black hover:bg-gray-900 text-white font-bold py-3 px-8 rounded-md transition-all duration-300"
+            className="inline-block bg-black hover:bg-gray-900 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 shadow-md"
           >
             Contact Us Today
           </Link>
